@@ -1,1 +1,3 @@
-<p>page-destinations works!</p>
+<div class="col" *ngFor="let destinations of DESTINATIONS">
+    <a [routerLink]="['/album', Album.nomAlbum]">{{Album.nomAlbum}}</a>
+</div>
