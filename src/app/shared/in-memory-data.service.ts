@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { Formule } from '../Model/formule';
+import { Utilisateur } from '../Model/utilisateur';
+import { TestBed } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -163,13 +166,17 @@ export class InMemoryDataService implements InMemoryDbService {
       }
     ];
 
-    const voyageurs = [{
-      id: '2',
-      civilite: 'M',
-      nom: 'M',
-      prenom: 'mm',
-      date_naissance: '2000-01-01',
-  }]
+    const voyageurs = [
+      {
+        id: '2',
+        civilite: 'M',
+        nom: 'M',
+        prenom: 'mm',
+        date_naissance: '2000-01-01',
+        email: '2@test.com',
+        motDePasse:'test',
+      }
+    ];
 
     return { formules, voyageurs };
   }

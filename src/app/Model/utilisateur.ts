@@ -2,20 +2,24 @@
 
 export class Utilisateur {
 
-    private id:string;
-    private civilité: string;
-    private nom: string;
-    private prenom: string;
-    private date_naissance: string;
-    private adresse: string; // classe spécifique ?
-    private telephone: number;
+    public id:string;
+    public civilite: string;
+    public nom: string;
+    public prenom: string;
+    public date_naissance: string;
+    public adresse: string; // classe spécifique ?
+    public telephone: string;
+    public email:string;
+    public motDePasse:string;
 
-    constructor(id:string,civilité: string, nom: string, prenom: string, dateDeNaissance: string, adresse: string, telephone: number) {
+    constructor(id:string,email:string, motDePasse:string,civilite: string, nom: string, prenom: string, date_naissance: string, adresse:string, telephone:string) {
         this.id=id;
-        this.civilité = civilité;
+        this.email=email;
+        this.motDePasse=motDePasse;
+        this.civilite = civilite;
         this.nom = nom;
         this.prenom = prenom;
-        this.date_naissance = dateDeNaissance;
+        this.date_naissance = date_naissance;
         this.adresse = adresse;
         this.telephone = telephone;
     }

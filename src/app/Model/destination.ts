@@ -1,14 +1,14 @@
 export class Destination {
 
-    private id:string;
-    public continent:string;
-    public pays:string;
-    private region:string;
-    private description: string;
-    private deleted:string;
-    private images:string[]; // chemin du fichier contenant l'image associée à la destination dans la BDD
+    public id:string;
+    //public continent:string;
+    //public pays:string;
+    public region:string;
+    public description: string;
+    public deleted:string;
+    public images:string[]; // chemin du fichier contenant l'image associée à la destination dans la BDD
     
-    private periode:string; // mois correspondants aux dates
+    //public periode:string; // mois correspondants aux dates
 
     constructor(id:string,pays:string,region:string,description:string, images:string[],deleted:string) {
         this.id=id;
