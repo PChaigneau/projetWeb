@@ -1,14 +1,14 @@
-import { Voyage } from './voyage';
+import { Formules } from './formules';
 
 export class DossierResa {
 
     private numCarte:number;
-    private voyage:Voyage;
+    private formule:Formules;
     private assurance:boolean;
 
-    constructor(numCarte:number, voyage:Voyage, assurance:boolean) {
+    constructor(numCarte:number, formule:Formules, assurance:boolean) {
         this.numCarte=numCarte;
-        this.voyage=voyage;
+        this.formule=formule;
         this.assurance=assurance;
     }
 }

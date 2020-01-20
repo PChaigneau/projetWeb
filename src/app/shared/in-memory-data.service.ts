@@ -168,7 +168,7 @@ export class InMemoryDataService implements InMemoryDbService {
       civilite: 'M',
       nom: 'M',
       prenom: 'mm',
-      date_naissance: '2000-01-01'
+      date_naissance: '2000-01-01',
   }]
 
     return { formules, voyageurs };
