@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Destination } from '../Model/destination';
 import { DestinationService } from '../shared/destination.service';
+import { FormuleService } from '../shared/formule.service';
+import { Formule } from '../Model/formule';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-page-destinations',
@@ -9,12 +12,36 @@ import { DestinationService } from '../shared/destination.service';
 })
 export class PageDestinationsComponent implements OnInit {
 
-  constructor(private destinationService: DestinationService) { }
-  public selectedDestination:Destination;
-  public DESTINATIONS :Destination[];
+  ///public destination : Destination
+
+  listeFormules: Formule[];
+
+  constructor(private formuleService: FormuleService) { }
+  public selectedDestination: Destination;
+  public DESTINATIONS: Destination[];
 
   ngOnInit() {
-    this.DESTINATIONS= this.destinationService.getDestinations()
+    this.listeFormules = [];
+    this.DESTINATIONS = [];
+
+    this.formuleService.getFormules().subscribe(
+      (result) => {
+        this.listeFormules = result;  
+        for (const formule of this.listeFormules) {
+          this.DESTINATIONS.push(formule.destination)
+        } 
+          
+       this.DESTINATIONS=_.uniqBy(this.DESTINATIONS,'id')
+
+      }
+          
+        
+      )
+
+     
+
+
+
   }
 
 }

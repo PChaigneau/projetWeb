@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'inscription', component:InscriptionComponent},
   {path:'connexion', component:ConnexionComponent},
   {path:'destinations', component: PageDestinationsComponent},
-  {path:'infosDestination/:id', component:InfosDestinationComponent},  
+  {path:'destinations/:id', component:InfosDestinationComponent},  
   {path:'paiement', component:PaiementComponent},
   {path:'**', redirectTo:'accueil'}
 ];
