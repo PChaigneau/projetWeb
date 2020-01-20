@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../Shared/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  Title='Bo Voyage';
+  isLogged: boolean;
+
+  constructor(private loginService : LoginService) { }
 
   ngOnInit() {
   }
 
+  getFormatteddate(){
+    return new Date().toLocaleDateString();
+  }
+  logout(){
+    this.loginService.logout();  // login service
+    this.isLogged=this.loginService.islogged();
+    
+  }
 }
+
+
