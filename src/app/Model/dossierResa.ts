@@ -1,12 +1,12 @@
-import { Formules } from './formules';
+import { Formule } from './formule';
 
 export class DossierResa {
 
     private numCarte:number;
-    private formule:Formules;
+    private formule:Formule;
     private assurance:boolean;
 
-    constructor(numCarte:number, formule:Formules, assurance:boolean) {
+    constructor(numCarte:number, formule:Formule, assurance:boolean) {
         this.numCarte=numCarte;
         this.formule=formule;
         this.assurance=assurance;

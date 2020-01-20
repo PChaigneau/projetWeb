@@ -22,9 +22,4 @@ export class LoginService {
     return this.isLogged;
   }
 
-  /*
-  modifier les noms de variables dans le template de la navbar
-  créer user service
-
-  */
 }
