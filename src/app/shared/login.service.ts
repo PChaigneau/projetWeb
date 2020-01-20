@@ -18,7 +18,7 @@ export class LoginService {
     this.router.navigate(['accueil'])
   }
 
-  isLogged(){
+  islogged(){
     return this.isLogged;
   }
 
