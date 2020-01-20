@@ -8,7 +8,7 @@ import { LoginService } from '../Shared/login.service';
 })
 export class NavbarComponent implements OnInit {
 
-  Title='Bo Voyage';
+  title='Bo Voyage';
   isLogged: boolean;
 
   constructor(private loginService : LoginService) { }

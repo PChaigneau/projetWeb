@@ -7,10 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  public contact: string = 'contact';
-  public getMail(){
-    return 'mail@mail.fr'
-  }
+  public mentionsLegales: string = 'Copyright © 2020 Bo Voyage';
+  
 
   ngOnInit() {
   }
