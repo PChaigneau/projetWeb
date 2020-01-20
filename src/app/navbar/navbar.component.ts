@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../Shared/login.service';
+import { LoginService } from '../shared/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,9 +20,8 @@ export class NavbarComponent implements OnInit {
     return new Date().toLocaleDateString();
   }
   logout(){
-    this.loginService.logout();  // login service
-    this.isLogged=this.loginService.islogged();
-    
+    this.loginService.logout();
+    this.isLogged=this.loginService.islogged();    
   }
 }
 

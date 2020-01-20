@@ -18,6 +18,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { PageDestinationsComponent } from './page-destinations/page-destinations.component';
 import { PaiementComponent } from './paiement/paiement.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,8 @@ import { AccueilComponent } from './accueil/accueil.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
