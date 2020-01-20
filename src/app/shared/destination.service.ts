@@ -21,10 +21,10 @@ export class DestinationService {
     for (const formule of this.listeFormules) {
       this.listeDestinations.push(formule.destination)
     }
-    return 
+    return this.listeDestinations;
   }
 
-/*
+
   findDestination(id):Observable<Destination>{
     return this.httpClient.get<Destination>('api/formules/'+id);
   }
@@ -32,5 +32,4 @@ export class DestinationService {
   deleteDestination(id):Observable<Destination>{
     return this.httpClient.delete<Destination>('api/formules/'+id);
   }
-  */
 }

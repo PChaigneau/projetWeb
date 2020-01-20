@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { UtilisateurService } from './utilisateur.service';
+import { Utilisateur } from '../Model/utilisateur';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +9,18 @@ import { Router } from '@angular/router';
 export class LoginService {
 
   isLogged:boolean;
+  user:Utilisateur; 
 
-  constructor(private router:Router) { 
+  constructor(private router:Router, private utilisateurService:UtilisateurService) { 
     this.isLogged = false;
   }
+
+  login(email:string, motDePasse:string){
+    this.utilisateurService.findUser(email).subscribe(
+      (result)=> this.user = result);
+     if(email===this.user.email && motDePasse===this.user.motDePasse)    
+     this.isLogged = true;
+   }
 
   logout(){
     this.isLogged = false;
