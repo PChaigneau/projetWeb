@@ -11,6 +11,6 @@ export class LoginGuardService implements CanActivate{
   constructor(private loginService:LoginService) { }
 
   canActivate(){
-    return this.loginService.isLogged();
+    return this.loginService.islogged();
   }
 }
