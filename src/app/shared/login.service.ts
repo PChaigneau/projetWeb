@@ -18,7 +18,13 @@ export class LoginService {
     this.router.navigate(['accueil'])
   }
 
-  islogged(){
+  isLogged(){
     return this.isLogged;
   }
+
+  /*
+  modifier les noms de variables dans le template de la navbar
+  créer user service
+
+  */
 }
