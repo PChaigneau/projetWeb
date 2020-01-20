@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Destination } from '../Model/destination';
+import { DestinationService } from '../shared/destination.service';
 
 @Component({
   selector: 'app-page-destinations',
@@ -13,7 +14,7 @@ export class PageDestinationsComponent implements OnInit {
   public DESTINATIONS :Destination[];
 
   ngOnInit() {
-    this.DESTINATIONS= this.destinationService.getDestination()
+    this.DESTINATIONS= this.destinationService.getDestinations()
   }
 
 }

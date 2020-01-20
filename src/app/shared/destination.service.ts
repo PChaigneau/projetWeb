@@ -15,7 +15,7 @@ export class DestinationService {
 
   constructor(private httpClient:HttpClient, private formuleService:FormuleService) { }
 
-  getDestinations():Observable<Destination[]>{
+  getDestinations():Destination[]{
     this.formuleService.getFormules().subscribe(
       (result) => {this.listeFormules = result;})
     for (const formule of this.listeFormules) {
