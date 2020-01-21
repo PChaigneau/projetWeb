@@ -37,3 +37,7 @@ export class InscriptionComponent implements OnInit {
   
 }
 
+/*TO DO : 
+- insérer l'adresse en tant que FormArray dans le FormGroup 
+- vérifier que l'utilisateur entre une date de naissance au format adéquat
+*/

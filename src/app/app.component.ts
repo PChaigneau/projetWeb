@@ -10,7 +10,5 @@ export class AppComponent implements OnInit{
   title = 'BoVoyages';
 
   constructor(private httpClient: HttpClient){}
-  ngOnInit(){
-    
-  }
+  ngOnInit(){  }
 }
