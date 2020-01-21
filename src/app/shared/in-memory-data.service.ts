@@ -13,6 +13,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
 
+   
     const formules = [
       {
         id: '1',
@@ -160,7 +161,9 @@ export class InMemoryDataService implements InMemoryDbService {
           id: '6',
           region: 'Bretagne',
           description: 'Tr\u00e8s belle r\u00e9gion, mer et campagne. Pays de l\u00e9gendes et des menhirs\r\n\t\r\n\t\r\n\t',
-          deleted: '0'
+          deleted: '0',
+          images: ['bretagne.jpg']
+
         },
         promotion: null
       }

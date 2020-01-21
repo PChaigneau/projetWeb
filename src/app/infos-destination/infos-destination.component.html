@@ -1,1 +1,8 @@
-<p>infos-destination works!</p>
+<div class="container" *ngIf="destination">
+    
+<img class="card-img-top" src="assets/{{destination.images[0]}}"  alt="Card image cap">
+<H2>{{destination.region}}</H2>
+<p class="card-text">{{destination.description}}.</p>
+<p class="card-text">Reference :{{destination.id}}.</p>
+</div>
+

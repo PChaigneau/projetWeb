@@ -25,8 +25,8 @@ export class DestinationService {
   }
 
 
-  findDestination(id):Observable<Destination>{
-    return this.httpClient.get<Destination>('api/formules/'+id);
+  findDestination(id):Observable<Formule>{
+    return this.httpClient.get<Formule>('api/formules/'+id);
   }
 
   deleteDestination(id):Observable<Destination>{

@@ -31,7 +31,7 @@ export class PageDestinationsComponent implements OnInit {
           this.DESTINATIONS.push(formule.destination)
         } 
           
-      //  this.DESTINATIONS=_.uniqBy(this.DESTINATIONS,'id')
+       this.DESTINATIONS=_.uniqBy(this.DESTINATIONS,'id')
 
       })
 

@@ -9,7 +9,7 @@ import { PaiementComponent } from './paiement/paiement.component';
 
 
 const routes: Routes = [
-  {path:'acceuil', component:AccueilComponent},  
+  {path:'accueil', component:AccueilComponent},  
   {path:'inscription', component:InscriptionComponent},
   {path:'connexion', component:ConnexionComponent},
   {path:'destinations', component: PageDestinationsComponent},

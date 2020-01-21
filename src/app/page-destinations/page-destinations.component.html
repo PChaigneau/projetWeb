@@ -1,34 +1,20 @@
+
+
 <div class="container" *ngFor="let destination of DESTINATIONS">
-    <div class="row">
-
-        <div class="col-4" style="width: 18rem;" [routerLink]="['/destinations', destination.id]">
-            
-            <h2>{{destination.id}}</h2>
-            <img class="card-img-top" src="assets/{{destination.images[0]}}"  alt="Card image cap">
-            
-
-        </div>
-
-
-    </div>
-</div>
-
-
-<!-- <div class="container" *ngFor="let destination of DESTINATIONS">
 <div class="row" >
 
-    <div class="col-4" style="width: 18rem;" [routerLink]="['/destinations', destination.id]">
-        <img class="card-img-top" src="assets/{{destination.images[0]}}"  alt="Card image cap">
+    <div class="col-4" style="width: 18rem;" >
+        <img class="card-img-top" src="assets/{{destination.images[0]}}"  alt="{{destination.region}}">
         <div class="card-body">
             <H2>{{destination.region}}</H2>
             <p class="card-text">{{destination.description}}.</p>
             <p class="card-text">Reference :{{destination.id}}.</p>
-            <a href="#" class="card-link"></a>
+            <a [routerLink]="['/destinations', destination.id]" class="card-link">Plus d'information.</a>
         </div>
 
 
     </div>
 </div>
-</div> -->
+</div>
 
 <!-- destination id 11 , n'a pas d'image !!-->
