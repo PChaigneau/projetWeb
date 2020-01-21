@@ -20,6 +20,7 @@ export class LoginService {
       (result)=> this.user = result);
      if(email===this.user.email && motDePasse===this.user.motDePasse)    
      this.isLogged = true;
+     this.router.navigate(['accueil']);
    }
 
   logout(){
