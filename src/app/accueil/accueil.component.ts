@@ -5,6 +5,7 @@ import { DestinationService } from '../shared/destination.service';
 import { Destination } from '../Model/destination';
 import * as _ from 'lodash';
 import { FormuleService } from '../shared/formule.service';
+import { LoginService } from '../shared/login.service';
 
 @Component({
   selector: 'app-accueil',
@@ -13,7 +14,7 @@ import { FormuleService } from '../shared/formule.service';
 })
 export class AccueilComponent implements OnInit {
 
-  constructor(private activatedRoutes: ActivatedRoute, private destService: DestinationService, private formuleService: FormuleService) { }
+  constructor(private activatedRoutes: ActivatedRoute, private destService: DestinationService, private formuleService: FormuleService, private loginService:LoginService) { }
 
   public selectedDestination: Destination;
   destination: Destination;
@@ -38,6 +39,12 @@ export class AccueilComponent implements OnInit {
 
       }
     )
+
+  }
+
+  isLogged(id){
+    if(this.loginService.isLogged){return "/paiement/"+id;}
+    else {return "/connexion";}   
 
   }
 

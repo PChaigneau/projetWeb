@@ -6,6 +6,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InfosDestinationComponent } from './infos-destination/infos-destination.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { PaiementComponent } from './paiement/paiement.component';
+import { LoginGuardService } from './shared/login-guard.service';
 
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
   {path:'connexion', component:ConnexionComponent},
   {path:'destinations', component: PageDestinationsComponent},
   {path:'destinations/:id', component:InfosDestinationComponent},  
-  {path:'paiement', component:PaiementComponent},
+  {path:'paiement/:id', component:PaiementComponent, canActivate:[LoginGuardService]},
   {path:'**', redirectTo:'accueil'}
 ];
 

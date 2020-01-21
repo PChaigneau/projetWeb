@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container" *ngIf="destination">
 
     <img class="card-img-top" src="assets/{{destination.images[0]}}" alt="Card image cap">
@@ -21,7 +22,7 @@
                 <p class="card-text">Prix (HT): {{formule.prix_ht}}€</p>
                 <p class="card-text">Nombre de places : {{formule.nb_places}}</p>
             </div>
-            <button type="button"  routerLink="/paiement" class="btn btn-primary hide">Réserver cette formule</button>
+            <button type="button" [routerLink]="isLogged(formule.id)" class="btn btn-primary hide">Réserver cette formule</button>
         </div>
         
     </div>

@@ -5,6 +5,7 @@ import { Destination } from '../Model/destination';
 import { Formule } from '../Model/formule';
 import { FormuleService } from '../shared/formule.service';
 import * as _ from 'lodash';
+import { LoginService } from '../shared/login.service';
 
 @Component({
   selector: 'app-infos-destination',
@@ -15,7 +16,7 @@ export class InfosDestinationComponent implements OnInit {
 
   isSelected:boolean;
 
-  constructor(private activatedRoutes: ActivatedRoute, private destService: DestinationService, private formuleService: FormuleService) { }
+  constructor(private loginService:LoginService, private activatedRoutes: ActivatedRoute, private destService: DestinationService, private formuleService: FormuleService) { }
 
   public selectedDestination: Destination;
   destination: Destination;
@@ -61,6 +62,12 @@ export class InfosDestinationComponent implements OnInit {
       if (formule.destination.id === this.destination.id) {
         this.formulesAttenantes.push(formule);
       }
+  }
+
+  isLogged(id){
+    if(this.loginService.isLogged){return "/paiement/"+id;}
+    else {return "/connexion";}   
+
   }
 
   select(){

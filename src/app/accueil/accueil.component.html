@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
@@ -20,7 +21,7 @@
                 <li class="list-group-item">{{formule.nb_places}}</li>
                 <li class="list-group-item">{{formule.prix_ht}}s</li>
             </ul>
-                <a routerLink="/paiement" class="card-link">Reserver</a>
+                <a [routerLink]="isLogged(formule.id)" class="card-link">Reserver</a>
 
         </div>
     </div>

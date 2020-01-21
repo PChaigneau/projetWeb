@@ -171,12 +171,12 @@ export class InMemoryDataService implements InMemoryDbService {
 
     const voyageurs = [
       {
-        id: '2',
+        id: 2,
         civilite: 'M',
         nom: 'M',
         prenom: 'mm',
-        date_naissance: '2000-01-01',
-        email: '2@test.com',
+        date_naissance: 'test',
+        email: 'test',
         motDePasse:'test',
       }
     ];

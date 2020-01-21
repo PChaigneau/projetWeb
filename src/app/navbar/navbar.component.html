@@ -25,8 +25,8 @@
             <li class="nav-item active" *ngIf="!isLogged">
                 <a class="nav-link"  routerLink="/connexion">Connexion </a>
             </li>
-            <li class="nav-item active" *ngIf="isLogged">
-                <p class="nav-link" (click)="logout()">Deconnexion </p>
+            <li class="nav-item active" *ngIf="isLogged"> 
+                <a class="nav-link" (click)="logout()">Deconnexion </a>
             </li>
         </ul>        
         <p class="nav-link disabled" *ngIf="isLogged">{{ utilisateur.nom }}</p>
