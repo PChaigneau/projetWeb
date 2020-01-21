@@ -1,3 +1,20 @@
-<div class="col" *ngFor="let destination of DESTINATIONS">
-    <a [routerLink]="['/destinations', destination.id]">{{destination.id}}</a>
+
+<div class="container">
+<div class="row" *ngFor="let destination of DESTINATIONS">
+
+    <div class="col-4" style="width: 18rem;" [routerLink]="['/destinations', destination.id]">
+        <img class="card-img-top" src="assets/{{destination.images[0]}}"  alt="Card image cap">
+        <div class="card-body">
+            <H2>{{destination.region}}</H2>
+            <p class="card-text">{{destination.description}}.</p>
+            <p class="card-text">{{destination.id}}.</p>
+            <p class="card-text"></p>
+            <a href="#" class="card-link">{{destination.id}}</a>
+        </div>
+
+
+    </div>
 </div>
+</div>
+
+<!-- src="assets/{{destination.images[0]}}"-->
