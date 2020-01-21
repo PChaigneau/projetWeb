@@ -13,11 +13,8 @@ import * as _ from 'lodash';
 })
 export class InfosDestinationComponent implements OnInit {
 
-<<<<<<< Updated upstream
   isSelected:boolean;
 
-=======
->>>>>>> Stashed changes
   constructor(private activatedRoutes: ActivatedRoute, private destService: DestinationService, private formuleService: FormuleService) { }
 
   public selectedDestination: Destination;
