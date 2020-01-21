@@ -17,7 +17,7 @@ export class UtilisateurService {
   updateUser(utilisateur){
     return this.httpClient.put('api/voyageurs', utilisateur) }
 
-  createuser(utilisateur){
+  createUser(utilisateur){
     return this.httpClient.post('api/voyageurs', utilisateur);
   }
 
