@@ -13,24 +13,21 @@ import * as _ from 'lodash';
 })
 export class InfosDestinationComponent implements OnInit {
 
-
-
-
-  // @Input() Album; si on voulait  appeler Album dans le html parent
-
+  isSelected:boolean;
 
   constructor(private activatedRoutes: ActivatedRoute, private destService: DestinationService, private formuleService: FormuleService) { }
 
   public selectedDestination: Destination;
   destination: Destination;
-  formule:Formule;
+  formulesAttenantes: Formule[];
   listeFormules: Formule[];
   public DESTINATIONS: Destination[];
 
   ngOnInit() {
     this.listeFormules = [];
     this.DESTINATIONS = [];
-
+    this.formulesAttenantes = [];
+    this.isSelected = false;
 
     this.formuleService.getFormules().subscribe(
       (result) => {
@@ -38,7 +35,6 @@ export class InfosDestinationComponent implements OnInit {
         for (const formule of this.listeFormules) {
           this.DESTINATIONS.push(formule.destination)
         }
-
         this.DESTINATIONS = _.uniqBy(this.DESTINATIONS, 'id')
 
         this.activatedRoutes.paramMap.subscribe(
@@ -49,16 +45,29 @@ export class InfosDestinationComponent implements OnInit {
                 this.destination = destination
               }
             }
-            for(const formule of this.listeFormules)
-            if (formule.destination.id === this.destination.id) {
-              this.formule=formule
-            }
-          }
-        )
+            this.getFormulesAttenantes();
+          }          
+        )      
+      
       }
-    )}
+    )
 
-  
+
 
   }
 
+  getFormulesAttenantes() {
+    for (const formule of this.listeFormules)
+      if (formule.destination.id === this.destination.id) {
+        this.formulesAttenantes.push(formule);
+      }
+  }
+
+  select(){
+    this.isSelected = true;
+  }
+
+  deselect(){
+    this.isSelected = false;
+  }
+}
