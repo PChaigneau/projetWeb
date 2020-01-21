@@ -34,6 +34,7 @@ export class AccueilComponent implements OnInit {
         }
 
         this.DESTINATIONS = _.uniqBy(this.DESTINATIONS, 'id')
+        
 
       }
     )

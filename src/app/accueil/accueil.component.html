@@ -1,15 +1,37 @@
-
-<div class="container" *ngFor="let formule of listeFormules">
-    <div class="row" >
-    
-        <div class="col-4" style="width: 18rem;" >
-            <!-- <img class="card-img-top" src="assets/{{destination.images[0]}}"  alt="{{destination.region}}"> -->
-            <div class="card-body">
-                <H2>{{formule.prix_ht}}</H2>
-            </div>
-    
-    
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Nos Formules</h1>
+            <p class="lead">Nos meilleursoffres du moment</p>
         </div>
     </div>
-    </div>
+   
+    <div class="row">
+    <div class="col-4" style="width: 18rem;" *ngFor="let formule of listeFormules">
+        <div *ngIf="formule.promotion">
+            <img class="card-img-top" src="assets/{{formule.destination.images[0]}}"
+                alt="{{formule.destination.region}}">
+            <div class="card-body">
+                <h5 class="card-title">{{formule.destination.region}}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{formule.date_depart | date: 'dd/MM/yyyy'}}</li>
+                <li class="list-group-item">{{formule.date_retour |date: 'dd/MM/yyyy'}}</li>
+                <li class="list-group-item">{{formule.nb_places}}</li>
+                <li class="list-group-item">{{formule.prix_ht}}s</li>
+            </ul>
+                <a routerLink="/paiement" class="card-link">Reserver</a>
 
+        </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Nos destinations</h1>
+                <p class="lead">Les destinations que nous proposons en ce moment</p>
+            </div>
+        </div>
+</div>
+
+<app-carte-destination class="col-4" style="width: 18rem;" *ngFor="let destination of DESTINATIONS"
+    [destination]="destination"></app-carte-destination>
