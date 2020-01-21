@@ -9,6 +9,7 @@ import { InMemoryDataService } from './shared/in-memory-data.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PromoComponent } from './promo/promo.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BarreFiltreComponent } from './barre-filtre/barre-filtre.component';
 import { ListeDestinationsComponent } from './liste-destinations/liste-destinations.component';
 import { CarteDestinationComponent } from './carte-destination/carte-destination.component';
@@ -18,7 +19,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { PageDestinationsComponent } from './page-destinations/page-destinations.component';
 import { PaiementComponent } from './paiement/paiement.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,    
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],

@@ -8,27 +8,31 @@ import { Utilisateur } from '../Model/utilisateur';
 })
 export class LoginService {
 
-  isLogged:boolean;
-  user:Utilisateur; 
+  isLogged: boolean;
+  user: Utilisateur;
 
-  constructor(private router:Router, private utilisateurService:UtilisateurService) { 
+  constructor(private router: Router, private utilisateurService: UtilisateurService) {
     this.isLogged = false;
   }
 
-  login(email:string, motDePasse:string){
+  login(email: string, motDePasse: string) {
     this.utilisateurService.findUser(email).subscribe(
-      (result)=> this.user = result);
-     if(email===this.user.email && motDePasse===this.user.motDePasse)    
-     this.isLogged = true;
-   }
+      (result) => {
+      this.user = result[0];
+        if (email === this.user.email && motDePasse === this.user.motDePasse){
+          this.isLogged = true;   
+        this.router.navigate(['accueil']);  
+        }
+      })
+  }
 
-  logout(){
+  logout() {
     this.isLogged = false;
 
     this.router.navigate(['accueil'])
   }
 
-  islogged(){
+  islogged() {
     return this.isLogged;
   }
 

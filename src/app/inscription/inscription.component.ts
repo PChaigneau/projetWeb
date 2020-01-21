@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UtilisateurService } from '../shared/utilisateur.service';
 import { Router } from '@angular/router';
 
@@ -16,15 +16,28 @@ export class InscriptionComponent implements OnInit {
 
   ngOnInit() {
     this.userForm = new FormGroup({
-      nom: new FormControl(),
-      prenom: new FormControl(),
-      civilite: new FormControl(),
-      date_naissance:new FormControl(),
+      nom: new FormControl('',[Validators.required]),
+      prenom: new FormControl('',[Validators.required]),
+      civilite: new FormControl('',[Validators.required]),
+      date_naissance: new FormControl('',[Validators.required]),
+      email: new FormControl('',[Validators.required]),
+      motDePasse: new FormControl('',[Validators.required]),
     })
   }
 
-  onSubmit(){
-    console.log(this.userForm.value)
+  onSubmit() {
+    if(this.userForm.valid){
+      const utilisateur = this.userForm.value;
+      this.utilisateurService.createUser(utilisateur).subscribe(
+        ()=> this.router.navigate(['/accueil'])
+      )
+    }
   }
 
+  
 }
+
+/*TO DO : 
+- insérer l'adresse en tant que FormArray dans le FormGroup 
+- vérifier que l'utilisateur entre une date de naissance au format adéquat
+*/

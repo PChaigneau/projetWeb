@@ -2,9 +2,10 @@
     background-color: #f8f9fa;
     color: #212529;
     display :flex;
-    position: fixed;
     bottom: 0px;
     width: 100%;
     align-items: center;
     flex-direction: column;
+    margin-top: auto;
+    ;
 }

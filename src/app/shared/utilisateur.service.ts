@@ -17,12 +17,12 @@ export class UtilisateurService {
   updateUser(utilisateur){
     return this.httpClient.put('api/voyageurs', utilisateur) }
 
-  createuser(utilisateur){
+  createUser(utilisateur){
     return this.httpClient.post('api/voyageurs', utilisateur);
   }
 
-  findUser(id):Observable<Utilisateur>{
-    return this.httpClient.get<Utilisateur>('api/voyageurs/'+id);
+  findUser(email):Observable<Utilisateur>{
+    return this.httpClient.get<Utilisateur>('api/voyageurs?email='+email);
   }
 
   deleteUser(id):Observable<Utilisateur>{

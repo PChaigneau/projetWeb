@@ -33,17 +33,11 @@ export class PageDestinationsComponent implements OnInit {
           
        this.DESTINATIONS=_.uniqBy(this.DESTINATIONS,'id')
 
-      }
-          
-        
-      )
-
-     
-
-
+      })
 
   }
-
 }
+
+ 
 
 // page qui afiche toutes les cartes "destination" (onglet navbar)

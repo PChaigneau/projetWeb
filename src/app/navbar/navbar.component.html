@@ -20,14 +20,16 @@
     <div>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Inscription </a>
+                <a class="nav-link"  routerLink="/inscription">Inscription </a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Connexion </a>
+            <li class="nav-item active" *ngIf="!isLogged">
+                <a class="nav-link"  routerLink="/connexion">Connexion </a>
             </li>
-        </ul>
-        <button class="nav-link disabled" (click)="logout()" *ngIf="loginService.isLogged">LogOut</button>
-        <p class="nav-link disabled" *ngIf="loginService.isLogged">{{ Utilisateur.nom }}</p>
+            <li class="nav-item active" *ngIf="isLogged"> 
+                <a class="nav-link" (click)="logout()">Deconnexion </a>
+            </li>
+        </ul>        
+        <p class="nav-link disabled" *ngIf="isLogged">{{ utilisateur.nom }}</p>
         <p class="nav-link disabled">{{getFormatteddate() }}</p>
     </div>
     </div>
@@ -36,7 +38,6 @@
 
 </nav>
 
-<!--TO DO :
-    - button navbar-toggler à conserver ?
+<!--TO DO:
+Un seul bouton de connexion qui renvoie vers une page : "déjà inscrit ? sinon inscrivez-vous"
 -->
-    

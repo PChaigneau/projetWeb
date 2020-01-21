@@ -13,13 +13,14 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
 
+   
     const formules = [
       {
         id: '1',
         date_depart: '2020-06-11 22:00:00',
         date_retour: '2020-06-23 22:00:00',
         prix_ht: '359',
-        deleted: '0',
+        deleted: '1',
         nb_places: '10',
         destination: {
           id: '1',
@@ -28,7 +29,7 @@ export class InMemoryDataService implements InMemoryDbService {
           deleted: '1',
           images: ['guadeloupe_1.jpg'],
         },
-        promotion: null
+        promotion:'1'
       }, {
         id: '2',
         date_depart: '2020-07-31 22:00:00',
@@ -43,7 +44,7 @@ export class InMemoryDataService implements InMemoryDbService {
           deleted: '1',
           images: ['guadeloupe_1.jpg'],
         },
-        promotion: null
+        promotion: '1'
       }, {
         id: '3',
         date_depart: '2020-09-02 22:00:00',
@@ -160,7 +161,9 @@ export class InMemoryDataService implements InMemoryDbService {
           id: '6',
           region: 'Bretagne',
           description: 'Tr\u00e8s belle r\u00e9gion, mer et campagne. Pays de l\u00e9gendes et des menhirs\r\n\t\r\n\t\r\n\t',
-          deleted: '0'
+          deleted: '0',
+          images: ['bretagne.jpg']
+
         },
         promotion: null
       }
@@ -168,12 +171,12 @@ export class InMemoryDataService implements InMemoryDbService {
 
     const voyageurs = [
       {
-        id: '2',
+        id: 2,
         civilite: 'M',
         nom: 'M',
         prenom: 'mm',
-        date_naissance: '2000-01-01',
-        email: '2@test.com',
+        date_naissance: 'test',
+        email: 'test',
         motDePasse:'test',
       }
     ];

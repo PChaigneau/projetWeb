@@ -6,15 +6,16 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InfosDestinationComponent } from './infos-destination/infos-destination.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { PaiementComponent } from './paiement/paiement.component';
+import { LoginGuardService } from './shared/login-guard.service';
 
 
 const routes: Routes = [
-  {path:'acceuil', component:AccueilComponent},  
+  {path:'accueil', component:AccueilComponent},  
   {path:'inscription', component:InscriptionComponent},
   {path:'connexion', component:ConnexionComponent},
   {path:'destinations', component: PageDestinationsComponent},
   {path:'destinations/:id', component:InfosDestinationComponent},  
-  {path:'paiement', component:PaiementComponent},
+  {path:'paiement/:id', component:PaiementComponent, canActivate:[LoginGuardService]},
   {path:'**', redirectTo:'accueil'}
 ];
 
@@ -23,4 +24,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-//sztzt

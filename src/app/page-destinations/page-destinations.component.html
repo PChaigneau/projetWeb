@@ -1,3 +1,17 @@
-<div class="col" *ngFor="let destination of DESTINATIONS">
-    <a [routerLink]="['/destinations', destination.id]">{{destination.id}}</a>
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <!-- <div class="col-4" *ngFor="let destination of DESTINATIONS" style="width: 18rem;" >
+        <img class="card-img-top" src="assets/{{destination.images[0]}}"  alt="{{destination.region}}">
+        <div class="card-body">
+            <H2>{{destination.region}}</H2>
+            <p class="card-text">{{destination.description}}.</p>
+            <a [routerLink]="['/destinations', destination.id]" class="card-link">Voir les formules.</a>
+        </div> -->
+
+        <app-carte-destination class="col-4" style="width: 18rem;" *ngFor="let destination of DESTINATIONS"
+            [destination]="destination"></app-carte-destination>
+
+
+    </div>
 </div>

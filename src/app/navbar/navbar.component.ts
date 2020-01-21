@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../shared/login.service';
+import { Utilisateur } from '../Model/utilisateur';
 
 @Component({
   selector: 'app-navbar',
@@ -10,10 +11,13 @@ export class NavbarComponent implements OnInit {
 
   title='Bo Voyage';
   isLogged: boolean;
+  utilisateur:Utilisateur;
 
   constructor(private loginService : LoginService) { }
 
   ngOnInit() {
+    this.isLogged = this.loginService.islogged();
+    this.utilisateur = this.loginService.user
   }
 
   getFormatteddate(){
@@ -21,7 +25,8 @@ export class NavbarComponent implements OnInit {
   }
   logout(){
     this.loginService.logout();
-    this.isLogged=this.loginService.islogged();    
+    this.isLogged=this.loginService.islogged();
+    
   }
 }
 
