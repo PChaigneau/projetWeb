@@ -17,42 +17,29 @@ export class AccueilComponent implements OnInit {
 
   public selectedDestination: Destination;
   destination: Destination;
-  formule:Formule;
+  formule: Formule;
   listeFormules: Formule[];
   public DESTINATIONS: Destination[];
 
   ngOnInit() {
-    // this.listeFormules = [];
-    // this.DESTINATIONS = [];
+    this.listeFormules = [];
+    this.DESTINATIONS = [];
 
 
-    // this.formuleService.getFormules().subscribe(
-    //   (result) => {
-    //     this.listeFormules = result;
-    //     for (const formule of this.listeFormules) {
-    //       this.DESTINATIONS.push(formule.destination)
-    //     }
+    this.formuleService.getFormules().subscribe(
+      (result) => {
+        this.listeFormules = result;
+        for (const formule of this.listeFormules) {
+          this.DESTINATIONS.push(formule.destination)
+        }
 
-    //     this.DESTINATIONS = _.uniqBy(this.DESTINATIONS, 'id')
+        this.DESTINATIONS = _.uniqBy(this.DESTINATIONS, 'id')
 
-    //     this.activatedRoutes.paramMap.subscribe(
-    //       (params) => {
-    //         const idDestination = params.get('id');
-    //         for (const destination of this.DESTINATIONS) {
-    //           if (destination.id === idDestination) {
-    //             this.destination = destination
-    //           }
-    //         }
-    //         for(const formule of this.listeFormules)
-    //         if (formule.destination.id === this.destination.id) {
-    //           this.formule=formule
-    //         }
-    //       }
-    //     )
-    //   }
-    // )
-  }
-
-  
+      }
+    )
 
   }
+
+
+
+}
