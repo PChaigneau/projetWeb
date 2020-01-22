@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DestinationService } from '../shared/destination.service';
 import { Destination } from '../Model/destination';
 import { Formule } from '../Model/formule';
 import { FormuleService } from '../shared/formule.service';
@@ -16,7 +15,7 @@ export class InfosDestinationComponent implements OnInit {
 
   isSelected:boolean;
 
-  constructor(private loginService:LoginService, private activatedRoutes: ActivatedRoute, private destService: DestinationService, private formuleService: FormuleService) { }
+  constructor(private loginService:LoginService, private activatedRoutes: ActivatedRoute, private formuleService: FormuleService) { }
 
   public selectedDestination: Destination;
   destination: Destination;

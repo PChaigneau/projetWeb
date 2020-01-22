@@ -12,18 +12,27 @@ import { LoginService } from '../shared/login.service';
 })
 export class ConnexionComponent implements OnInit {  
 
+  userForm: FormGroup;
   logForm: FormGroup;
 
-  constructor(private loginService:LoginService, private router:Router) { }
+  constructor(private utilisateurService:UtilisateurService, private loginService:LoginService, private router:Router) { }
 
 
-
-
-  ngOnInit() { 
+  ngOnInit() {
+    this.userForm = new FormGroup({
+      nom: new FormControl('',[Validators.required]),
+      prenom: new FormControl('',[Validators.required]),
+      civilite: new FormControl('',[Validators.required]),
+      date_naissance: new FormControl('',[Validators.required]),
+      email: new FormControl('',[Validators.required]),
+      motDePasse: new FormControl('',[Validators.required]),
+    })    
+    
     this.logForm = new FormGroup({
       email: new FormControl('',[Validators.required]),
       motDePasse: new FormControl('',[Validators.required]),
-    })   
+    })
+
 
   }
 
@@ -32,11 +41,18 @@ export class ConnexionComponent implements OnInit {
     this.loginService.login(this.logForm.value.email, this.logForm.value.motDePasse);
   }
 
-  islogged() {
-    return this.loginService.islogged()
-  }
+  onLogSubmit() {if(this.logForm.valid)this.loginService.login(this.logForm.value.email, this.logForm.value.motDePasse);}
 
-  onSubmit() {if(this.logForm.valid) this.login();}
+  
+  onUserSubmit() {
+    if(this.userForm.valid){
+      const newUser = this.userForm.value;
+      this.utilisateurService.createUser(newUser).subscribe(
+        () => this.loginService.login(newUser.email, newUser.motDePasse)
+      )
+    }
+    
+  }
   
 
 

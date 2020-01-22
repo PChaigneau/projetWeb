@@ -8,13 +8,13 @@ import { AppComponent } from './app.component';
 import { InMemoryDataService } from './shared/in-memory-data.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { PromoComponent } from './promo/promo.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BarreFiltreComponent } from './barre-filtre/barre-filtre.component';
-import { ListeDestinationsComponent } from './liste-destinations/liste-destinations.component';
+
+
 import { CarteDestinationComponent } from './carte-destination/carte-destination.component';
 import { InfosDestinationComponent } from './infos-destination/infos-destination.component';
-import { InscriptionComponent } from './inscription/inscription.component';
+
 import { ConnexionComponent } from './connexion/connexion.component';
 import { PageDestinationsComponent } from './page-destinations/page-destinations.component';
 import { PaiementComponent } from './paiement/paiement.component';
@@ -26,12 +26,8 @@ import { RouterModule, Routes } from '@angular/router';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    PromoComponent,
-    BarreFiltreComponent,
-    ListeDestinationsComponent,
     CarteDestinationComponent,
     InfosDestinationComponent,
-    InscriptionComponent,
     ConnexionComponent,
     PageDestinationsComponent,
     PaiementComponent,

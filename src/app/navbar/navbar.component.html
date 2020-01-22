@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand">{{title}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,30 +8,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" routerLink="/accueil">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" routerLink="/destinations">Destinations </a>
             </li>
-
-
         </ul>
-        
-    <div>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link"  routerLink="/inscription">Inscription </a>
-            </li>
-            <li class="nav-item active" *ngIf="!isLogged">
-                <a class="nav-link"  routerLink="/connexion">Connexion </a>
-            </li>
-            <li class="nav-item active" *ngIf="isLogged"> 
-                <a class="nav-link" (click)="logout()">Deconnexion </a>
-            </li>
-        </ul>        
-        <p class="nav-link disabled" *ngIf="isLogged">{{ utilisateur.nom }}</p>
-        <p class="nav-link disabled">{{getFormatteddate() }}</p>
-    </div>
+        <span class="navbar-text date">{{getFormatteddate()}}</span>        
+        <div>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" *ngIf="!isLogged">
+                    <button type="button" class="btn btn-success" routerLink="/connexion">Connexion</button>
+                </li>
+                <li class="nav-item active" *ngIf="isLogged">
+                    <span class="navbar-text">Connecté : {{utilisateur.prenom | titlecase}} {{utilisateur.nom | titlecase}}</span>
+                    <button type="button" class="btn btn-secondary" (click)="logout()">Déconnexion</button>
+                </li>
+            </ul>            
+        </div>
     </div>
 
 

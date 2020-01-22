@@ -1,38 +1,51 @@
 <app-navbar></app-navbar>
-<div class="container">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Nos Formules</h1>
-            <p class="lead">Nos meilleurs offres du moment</p>
-        </div>
-    </div>
-   
+<div class="content container-fluid">
     <div class="row">
-    <div class="col-4" style="width: 18rem;" *ngFor="let formule of listeFormules">
-        <div *ngIf="formule.promotion">
-            <img class="card-img-top" src="assets/{{formule.destination.images[0]}}"
-                alt="{{formule.destination.region}}">
-            <div class="card-body">
-                <h5 class="card-title">{{formule.destination.region}}</h5>
+        <div class="promo col-5">            
+                <div class="row jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-4">Voyages en promotion</h1>
+                        <p class="lead">Nos meilleures offres du moment</p>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="card col" *ngFor="let formule of formulesEnPromo"> 
+                        <img class="card-img-top" src="assets/{{formule.destination.images[0]}}" alt="Card image cap">      
+                        <div class="card-body">
+                            <h5 class="card-title">{{formule.destination.region}} à -{{formule.promotion}}%</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Aller : {{formule.date_depart | date: 'dd/MM/yyyy'}}</li>
+                            <li class="list-group-item">Retour : {{formule.date_retour |date: 'dd/MM/yyyy'}}</li>
+                            <li class="list-group-item">{{formule.prix_ht}}€ seulement !</li>
+                            <li class="list-group-item"><h6 style="color:crimson"> Plus que {{formule.nb_places}} places disponibles !</h6></li>
+                        </ul>
+                        <button [routerLink]="isLogged(formule.id)" class="btn btn-success card-link">Réserver maintenant !</button>
+                    </div>
+                </div>
+        </div>
+    
+
+        <div class="col-7">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Nos destinations</h1>
+                    <p class="lead">Les destinations que nous proposons en ce moment</p>
+                </div>
+            </div> 
+
+            <div id="carouselDestinations" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <app-carte-destination class="carouselDest" [destination]="DESTINATIONS[3]"></app-carte-destination>
+                    </div>
+                    <div class="carousel-item" *ngFor="let destination of DESTINATIONS">
+                        <app-carte-destination class="carouselDest" [destination]="destination"></app-carte-destination>
+                    </div>
+                </div>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{formule.date_depart | date: 'dd/MM/yyyy'}}</li>
-                <li class="list-group-item">{{formule.date_retour |date: 'dd/MM/yyyy'}}</li>
-                <li class="list-group-item">{{formule.nb_places}}</li>
-                <li class="list-group-item">{{formule.prix_ht}}s</li>
-            </ul>
-                <a [routerLink]="isLogged(formule.id)" class="card-link">Reserver</a>
 
         </div>
     </div>
-    <div class="container">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Nos destinations</h1>
-                <p class="lead">Les destinations que nous proposons en ce moment</p>
-            </div>
-        </div>
 </div>
-
-<app-carte-destination class="col-4" style="width: 18rem;" *ngFor="let destination of DESTINATIONS"
-    [destination]="destination"></app-carte-destination>

@@ -1,8 +1,34 @@
 <app-navbar></app-navbar>
-<form (ngSubmit)="onSubmit()" [formGroup]="logForm" class="logForm">
-<div  class="form-group">
-<input type="text" formControlName="email" placeholder="email" class="form-control mb-3" />
-<input type="text" formControlName="motDePasse" placeholder="Mot de passe" class="form-control mb-3" />
+<div class="container">
+    <div class="row">
+        <form (ngSubmit)="onUserSubmit()" [formGroup]="userForm" class="userForm col-5">
+            <h3>Pour réserver votre voyage, inscrivez-vous :</h3>
+            <div class="form-group">
+                <input type="text" formControlName="nom" placeholder="Nom" class="form-control mb-3" />
+                <input type="text" formControlName="prenom" placeholder="Prénom" class="form-control mb-3" />
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="civiliteSelect">Civilité : </label>
+                    </div>
+                    <select class="custom-select" formControlName="civilite" id="civiliteSelect">
+                        <option selected></option>
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+                <input type="text" formControlName="date_naissance" placeholder="Date de naissance" class="form-control mb-3" />
+                <input type="text" formControlName="email" placeholder="email" class="form-control mb-3" />
+                <input type="text" formControlName="motDePasse" placeholder="Mot de passe" class="form-control mb-3" />                
+            </div>
+            <button type="submit" [disabled]="userForm.invalid">Valider</button>
+        </form>
+        <form (ngSubmit)="onLogSubmit()" [formGroup]="logForm" class="logForm col-5">
+            <h3>Déjà inscrit ? Connectez-vous :</h3>
+            <div  class="form-group">
+                <input type="text" formControlName="email" placeholder="email" class="form-control mb-3" />
+                <input type="text" formControlName="motDePasse" placeholder="Mot de passe" class="form-control mb-3" />
+            </div>
+            <button type="submit" [disabled]="logForm.invalid">Connexion</button>
+        </form>        
+    </div>
 </div>
-<button type="submit" [disabled]="logForm.invalid">Connexion</button>
-</form>

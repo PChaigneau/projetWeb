@@ -1,0 +1,21 @@
+.content{
+    width:85%;
+    margin-left:5rem;
+    margin-right:5rem;
+
+}
+
+.card{
+    width:90%;
+    margin:1rem;   
+}
+
+
+.carouselDest{
+    position: relative;   
+    width:100%;
+}
+
+.promo{
+    border: 1px solid grey
+}

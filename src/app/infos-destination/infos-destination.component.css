@@ -9,3 +9,8 @@
 .formule_carte:hover button{
     display: block;
 }
+
+.card-img-top{
+    width:100%;
+    margin-top: 2rem;
+}

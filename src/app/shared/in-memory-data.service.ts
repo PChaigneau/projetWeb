@@ -21,7 +21,7 @@ export class InMemoryDataService implements InMemoryDbService {
         date_retour: '2020-06-23 22:00:00',
         prix_ht: '359',
         deleted: '1',
-        nb_places: '10',
+        nb_places: '6',
         destination: {
           id: '1',
           region: 'Guadeloupe',
@@ -29,7 +29,7 @@ export class InMemoryDataService implements InMemoryDbService {
           deleted: '1',
           images: ['guadeloupe_1.jpg'],
         },
-        promotion:'1'
+        promotion:'20'
       }, {
         id: '2',
         date_depart: '2020-07-31 22:00:00',
@@ -44,7 +44,7 @@ export class InMemoryDataService implements InMemoryDbService {
           deleted: '1',
           images: ['guadeloupe_1.jpg'],
         },
-        promotion: '1'
+        promotion: null
       }, {
         id: '3',
         date_depart: '2020-09-02 22:00:00',
@@ -96,7 +96,7 @@ export class InMemoryDataService implements InMemoryDbService {
         date_retour: '2020-07-15 00:00:00',
         prix_ht: '1700',
         deleted: '0',
-        nb_places: '10',
+        nb_places: '4',
         destination: {
           id: '3',
           region: 'Birmanie',
@@ -104,7 +104,7 @@ export class InMemoryDataService implements InMemoryDbService {
           deleted: '1',
           images: ['birmanie_1.jpg', 'birmanie_2.jpg', 'birmanie_3.jpg'],
         },
-        promotion: null
+        promotion: '30'
       }, {
         id: '7',
         date_depart: '2020-11-12 00:00:00',

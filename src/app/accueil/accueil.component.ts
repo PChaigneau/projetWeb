@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Formule } from '../Model/formule';
-import { ActivatedRoute } from '@angular/router';
-import { DestinationService } from '../shared/destination.service';
 import { Destination } from '../Model/destination';
 import * as _ from 'lodash';
 import { FormuleService } from '../shared/formule.service';
@@ -14,16 +12,17 @@ import { LoginService } from '../shared/login.service';
 })
 export class AccueilComponent implements OnInit {
 
-  constructor(private activatedRoutes: ActivatedRoute, private destService: DestinationService, private formuleService: FormuleService, private loginService:LoginService) { }
+  constructor(private formuleService: FormuleService, private loginService:LoginService) { }
 
   public selectedDestination: Destination;
   destination: Destination;
-  formule: Formule;
   listeFormules: Formule[];
+  formulesEnPromo: Formule[];
   public DESTINATIONS: Destination[];
 
   ngOnInit() {
     this.listeFormules = [];
+    this.formulesEnPromo = [];
     this.DESTINATIONS = [];
 
 
@@ -31,12 +30,10 @@ export class AccueilComponent implements OnInit {
       (result) => {
         this.listeFormules = result;
         for (const formule of this.listeFormules) {
-          this.DESTINATIONS.push(formule.destination)
+          this.DESTINATIONS.push(formule.destination)          
         }
-
         this.DESTINATIONS = _.uniqBy(this.DESTINATIONS, 'id')
-        
-
+        this.formulesEnPromo = this.listeFormules.filter((formule)=>formule.promotion);
       }
     )
 
